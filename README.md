@@ -89,10 +89,12 @@ A complete PyTorch implementation of Masked Autoencoders for vision learning:
 ## Key Features
 
 ### Multi-Network Analysis
-- Tests across multiple self-supervised neural network architectures
-- Compares feedforward networks (VGG, AlexNet, etc.) with self-supervised models
-- Includes transformer-based models (ViT, MAE) and their perceptual capabilities
-- Focuses on how self-supervised learning affects human-like perception
+- Tests across **9 different self-supervised learning models** spanning multiple architectures
+- **Contrastive SSL Models**: DINOv2, iBOT, SimCLR, SWAV, DeepCluster, IPCL
+- **Representational SSL Models**: MAE, BYOL, UNICOM, Auto-encoders
+- **Architecture Coverage**: Vision Transformers (ViT), ResNet-50, VGG-16, AlexNet
+- Compares self-supervised models with supervised baselines
+- Focuses on how different SSL approaches affect human-like perception
 
 ### Distance Metrics
 - Euclidean distance
@@ -104,6 +106,12 @@ A complete PyTorch implementation of Masked Autoencoders for vision learning:
 - Extracts features from all network layers
 - Analyzes how perceptual effects change across network depth
 - Compares early vs. late layer representations
+
+### Comprehensive Experimental Framework
+- **Shape-Texture Bias Analysis**: 6 different image manipulations (original, greyscale, sketch, silhouette, edges, stylized)
+- **13 Perceptual Phenomena**: Thatcher effect, mirror confusion, scene incongruence, multiple objects, correlational sparseness, Weber's law, relative size, surface invariance, 3D processing, occlusion, depth, object parts, global advantage
+- **Cue-Conflict Experiments**: Direct comparison of shape vs. texture bias
+- **Cross-Architecture Comparison**: ViT, ResNet, VGG models with different SSL approaches
 
 ## Usage
 
@@ -189,24 +197,42 @@ This work extends the comprehensive analysis by [Jacob et al. (2021)](https://ww
 ### Key Research Questions
 
 Building on the original study's findings, this research addresses:
-- Do self-supervised models (like MAE) exhibit the same perceptual phenomena as supervised models?
+- Do self-supervised models (like MAE, DINOv2, SimCLR) exhibit the same perceptual phenomena as supervised models?
 - How does the training paradigm (self-supervised vs. supervised) affect the emergence of human-like perception?
 - Which perceptual effects are architecture-dependent vs. training-dependent in self-supervised models?
+- How do contrastive learning and representational learning approaches differ in capturing human perception?
 
-### Self-Supervised Learning and Human Perception
+### Major Findings
 
-The final study demonstrates that self-supervised models, particularly Masked Autoencoders (MAE), show:
-- [To be filled with specific findings from the PDF]
-- [Comparison with supervised models from Jacob et al. 2021]
-- [Implications for understanding human vision through self-supervised learning]
+#### Shape-Texture Bias Analysis
+- **Human observers**: Exhibit pronounced shape bias for object categorization
+- **ResNet-based SSL networks**: Show strong texture bias (similar to supervised ImageNet models)
+- **Vision Transformer (ViT) models**: Display equal bias towards both texture and shape, bridging the gap between human perception and computational models
+
+#### Perceptual Phenomena in Self-Supervised Models
+
+**Contrastive SSL Models** (DINOv2, iBOT, SimCLR, SWAV, DeepCluster, IPCL):
+- ✅ **Strong capabilities**: Mirror confusion, scene incongruence, correlational sparseness, surface invariance, Weber's law, 3D processing
+- ❌ **Limitations**: Occlusion perception, object parts recognition
+
+**Representational SSL Models** (MAE, BYOL, UNICOM, Auto-encoders):
+- ✅ **Strengths**: Mirror confusion, scene incongruence, correlational sparseness, global advantage
+- ❌ **Weaknesses**: 3D processing, Weber's law, relative size perception, surface invariance
+
+#### Architecture-Specific Findings
+
+**ViT-based models**: Lower texture bias, better shape-texture balance
+**ResNet-based models**: Strong texture bias, better 3D processing capabilities
+**VGG-based models**: Mixed performance, some show surface invariance when trained on stylized datasets
 
 ### Research Implications
 
-This work provides insights into:
-- How self-supervised learning affects perceptual representations compared to supervised learning
-- The relationship between unsupervised learning and human visual perception
-- Whether self-supervised models can better capture human-like perceptual biases
-- Potential applications for more human-like AI vision systems through self-supervised learning
+This work provides crucial insights into:
+- **Self-supervised learning** can capture broader range of human perception phenomena than supervised learning
+- **Contrastive SSL** generally outperforms representational SSL in capturing perceptual effects
+- **Architecture choice** significantly influences perceptual biases and capabilities
+- **Training on stylized datasets** can reduce texture bias and improve shape-based perception
+- **Current limitations**: All models struggle with occlusion and object parts recognition
 
 ## Dependencies
 
@@ -246,9 +272,22 @@ This research extends the comprehensive study by Jacob et al.:
 ```
 
 ### Final Study
+**"Exploring Parallels and Discrepancies Between the Biological Visual System and Self-Supervised Learning"**
+
+Authors: Vidhi Jain, Pramod Kaushik, and Bapi Raju  
+Institutions: Netaji Subhas University of Technology (NSUT), Delhi, India & International Institute of Information Technology (IIIT), Hyderabad, India
+
 You can find the final paper at https://drive.google.com/file/d/1sfUV5zHaDu-a_y5zykZHHG5E78Uj7GMj/view?usp=sharing
 
-*[Add proper citation for the final study once the PDF content is accessible]*
+```bibtex
+@article{jain2024exploring,
+  title={Exploring Parallels and Discrepancies Between the Biological Visual System and Self-Supervised Learning},
+  author={Jain, Vidhi and Kaushik, Pramod and Raju, Bapi},
+  journal={[Journal/Conference]},
+  year={2024},
+  note={Comprehensive analysis of self-supervised learning models and human perception phenomena}
+}
+```
 
 ## License
 
