@@ -279,16 +279,6 @@ Institutions: Netaji Subhas University of Technology (NSUT), Delhi, India & Inte
 
 You can find the final paper at https://drive.google.com/file/d/1sfUV5zHaDu-a_y5zykZHHG5E78Uj7GMj/view?usp=sharing
 
-```bibtex
-@article{jain2024exploring,
-  title={Exploring Parallels and Discrepancies Between the Biological Visual System and Self-Supervised Learning},
-  author={Jain, Vidhi and Kaushik, Pramod and Raju, Bapi},
-  journal={[Journal/Conference]},
-  year={2024},
-  note={Comprehensive analysis of self-supervised learning models and human perception phenomena}
-}
-```
-
 ## License
 
 This project includes code from multiple sources:
